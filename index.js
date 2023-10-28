@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
+const courses = require("./routes/courses");
+const home = require("./routes/home");
+const genres = require("./routes/genres");
 
-app.get("/api/courses", (req, res) => {
-  res.send([1, 2, 3]);
-});
+app.use(express.json());
+app.use("/api/courses", courses);
+app.use("/", home);
+app.use("/api/genres", genres);
 
-app.listen(3000, () => console.log("Listening on port 3000"));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
