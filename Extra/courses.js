@@ -1,6 +1,33 @@
 const express = require("express");
 const router = express.Router();
 const Joi = require("joi");
+const courseSchema = new mongoose.Schema({
+  name: String,
+  author: String,
+  tags: [String],
+  date: {type: Date, default: Date.now},
+  isPublished: Boolean,
+});
+
+const Course = mongoose.model("Course", courseSchema);
+
+async function createCourse() {
+  const course = new Course({
+    name: "Node Js",
+    author: "Tella",
+    tags: ["node", "backend"],
+    isPublished: true,
+  });
+  const result = await course.save();
+  console.log(result);
+}
+
+async function getCourse() {
+  const result = await Course.find({author: "Tella"});
+  console.log(result);
+}
+
+getCourse();
 
 const courses = [
   {id: 1, name: "Mathematics"},
