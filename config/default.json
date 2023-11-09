@@ -1,4 +1,4 @@
 {
 	"jwtPrivateKey": "",
-	"db": "mongodb+srv://codeReaper:DvAT7kxbQfVpZy3l@themovie.7zvq8ha.mongodb.net/?retryWrites=true&w=majority"
+	"db": "mongodb+srv://codeReaper:DvAT7kxbQfVpZy3l@themovie.7zvq8ha.mongodb.net/the_movie?retryWrites=true&w=majority"
 }
