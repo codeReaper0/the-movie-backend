@@ -6,15 +6,15 @@ const winston = require("winston");
 const swaggerDocument = require("./swagger");
 const cors = require("cors");
 
+// Use cors middleware
+app.use(cors({origin: "*"}));
+
 require("./startup/logging")();
 require("./startup/routes")(app);
 require("./startup/db")();
 require("./startup/validation")();
 require("./startup/config")();
 require("./startup/prod")(app);
-
-// Use cors middleware
-app.use(cors({origin: "*"}));
 
 // Swagger API Documentation
 const specs = swaggerJsdoc(swaggerDocument);
