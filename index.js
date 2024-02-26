@@ -14,7 +14,7 @@ require("./startup/config")();
 require("./startup/prod")(app);
 
 // Use cors middleware
-app.use(cors());
+app.use(cors({origin: "*"}));
 
 // Swagger API Documentation
 const specs = swaggerJsdoc(swaggerDocument);
